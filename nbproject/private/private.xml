@@ -5,6 +5,8 @@
         <group>
             <file>file:/home/jesfrin/NetBeansProjects/LaberintoTeoria/src/gnz/backend/Matriz/ManejadorMatriz.java</file>
             <file>file:/home/jesfrin/NetBeansProjects/LaberintoTeoria/src/gnz/backend/Matriz/Celda.java</file>
+            <file>file:/home/jesfrin/NetBeansProjects/LaberintoTeoria/src/gnz/backend/archivos/ManejadorDeArchivos.java</file>
+            <file>file:/home/jesfrin/NetBeansProjects/LaberintoTeoria/src/gnz/frontend/ManejadorDePanel.java</file>
         </group>
     </open-files>
 </project-private>

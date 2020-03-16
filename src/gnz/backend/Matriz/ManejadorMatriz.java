@@ -16,8 +16,8 @@ import java.io.Serializable;
  */
 public class ManejadorMatriz implements Serializable {
 
-    public final static int LONGITUD_PANEL = 600;
-    public final static int ALTITUD_PANEL = 600;
+    public final static int LONGITUD_PANEL = 620;
+    public final static int ALTITUD_PANEL = 620;
     public static final int LONGITUD_REALCM = 200;
 
     private Celda[][] matriz;

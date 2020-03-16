@@ -5,16 +5,17 @@
  */
 package gnz.backend.Matriz;
 
-import gnz.frontend.LaberintoFrame;
+import gnz.frontend.FrameOM;
 
 /**
  *
  * @author jesfrin
  */
 public class Run {
-    
-    public static void main(String [] args){
-        new LaberintoFrame();
+
+    public static int MULT = 3;
+    public static void main(String[] args) {
+        new FrameOM();
     }
-    
+
 }

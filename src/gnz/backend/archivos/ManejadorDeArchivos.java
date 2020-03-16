@@ -6,7 +6,7 @@
 package gnz.backend.archivos;
 
 import gnz.backend.Matriz.ManejadorMatriz;
-import gnz.frontend.LaberintoFrame;
+import gnz.frontend.FrameOM;
 import java.awt.Color;
 import java.io.File;
 import java.io.FileInputStream;
@@ -29,9 +29,9 @@ public class ManejadorDeArchivos {
     private boolean mapaEstaGuardado;
     private String nombreDeArchivo;
     private File rutaDeArchivo;
-    private LaberintoFrame laberintoFrame;
+    private FrameOM laberintoFrame;
 
-    public ManejadorDeArchivos(LaberintoFrame laberinto) {
+    public ManejadorDeArchivos(FrameOM laberinto) {
         this.mapaEstaGuardado = false;
         this.nombreDeArchivo = null;
         this.rutaDeArchivo = null;

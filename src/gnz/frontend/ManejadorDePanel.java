@@ -21,13 +21,13 @@ public class ManejadorDePanel {
 
 
     private ManejadorMatriz manMatriz;
-    private LaberintoFrame frame;
+    private FrameOM frame;
     private Color color;
     private Color copiaColor;
     private int numeroDeCuadros;
     private Graphics2D g;
     
-    public ManejadorDePanel(LaberintoFrame frame,int numeroDeCuadros) {
+    public ManejadorDePanel(FrameOM frame,int numeroDeCuadros) {
         this.frame = frame;
         this.color = Color.BLACK;
         this.copiaColor = Color.BLACK;

@@ -1,0 +1,82 @@
+package analizadores; 
+import java_cup.runtime.*;
+import java.util.LinkedList;
+import objetomovil4.*;
+import objetos.Movimiento;
+
+
+parser code 
+{:
+    public LinkedList<Movimiento> listavalores;
+
+    /**
+     * Método al que se llama automáticamente ante algún error sintactico.
+     **/ 
+    public void syntax_error(Symbol s){ 
+        int fil = (s.right)+1;
+        int col = (s.left)+1;
+        System.out.println("Error Sintáctico en la Línea " + (col) +
+        " Columna "+(fil)+ ". No se esperaba este componente: " +s.value+"."); 
+    } 
+
+    /**
+     * Método al que se llama automáticamente ante algún error sintáctico 
+     * en el que ya no es posible una recuperación de errores.
+     **/ 
+    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{ 
+        int fil = (s.right)+1;
+        int col = (s.left)+1;
+        System.out.println("Error síntactico irrecuperable en la Línea " + 
+        (col)+ " Columna "+(fil)+". Componente " + s.value + 
+        " no reconocido."); 
+    }  
+:} 
+
+
+terminal String com, Para, Parc;
+terminal String RIni, RFin, RTra, RMre, RMdi, RAde, RAtr, RArr, RAba, Rcm, RGra;
+terminal String numerico;
+
+non terminal S;
+non terminal String DIRECCION;
+non terminal Movimiento VALOR;
+non terminal LinkedList<Movimiento> LVALORES;
+ 
+//Iniciar
+start with S; 
+
+S::= RIni RTra LVALORES:a RFin RTra{:
+    parser.listavalores=a;
+    :};
+
+LVALORES::=LVALORES:a VALOR:b{:
+    RESULT=a;
+    RESULT.add(b);
+    :}
+    |VALOR:a{:
+    LinkedList<Movimiento> listavalores= new LinkedList<Movimiento>();
+    RESULT=listavalores;
+    RESULT.add(a);
+    :};
+
+VALOR::=RMre Para numerico:a Rcm com numerico:b com DIRECCION:c Parc{:
+        Movimiento mov=new Movimiento(c, a, b, "0"); 
+        RESULT=mov;
+    :}
+    |RMdi Para numerico:a Rcm com numerico:b com numerico:c RGra Parc{:
+        Movimiento mov=new Movimiento("4", a, b, c);
+        RESULT=mov;
+    :};
+
+DIRECCION::=RAde{:
+        RESULT="0";
+    :}
+    |RAtr{:
+        RESULT="1";
+    :}
+    |RArr{:
+        RESULT="2";    
+    :}
+    |RAba{:
+        RESULT="3";
+    :};
